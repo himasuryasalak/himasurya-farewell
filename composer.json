@@ -1,0 +1,14 @@
+{
+    "name": "nurrizki29/farewell21",
+    "description": "Sistem E-Ticket Farewell Himasurya 2021",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohammad Nur Rizki",
+            "email": "mnurrizki25@gmail.com"
+        }
+    ],
+    "require": {
+        "firebase/php-jwt": "^5.4"
+    }
+}

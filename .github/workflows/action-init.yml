@@ -1,0 +1,9 @@
+name: Initial Action
+on: [push]
+jobs:
+  Install-composer-dependency:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: php-actions/composer@v6
+      - run: composer require firebase/php-jwt
