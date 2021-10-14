@@ -18,6 +18,7 @@ require_once __DIR__ . '/src/session.php';
  
 <link rel="icon" href="favicon.ico" sizes="16x16">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Balsamiq+Sans:ital,wght@0,400;1,400;1,700&family=Comfortaa:wght@400;700&family=Kalam:wght@300;400;700&family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
+<link href="library/fontawsome/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
   <body>

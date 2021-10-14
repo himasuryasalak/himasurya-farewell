@@ -103,3 +103,13 @@ html{
     border-radius:3px;
     cursor: pointer;
 }
+#reader__dashboard_section_swaplink{
+  display: inline-block;
+  width: 80%;
+  background-color: rgb(44, 131, 225);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 0.5rem 0px;
+}

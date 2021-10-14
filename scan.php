@@ -9,7 +9,11 @@ try {
 }
 ?>
 <br>
+<div class='container' style="text-align: center;">
 <div id="reader"></div>
+<br>
+<button type="button" class='btn btn-primary' id="btnmanual">Manual Check-In</button>
+</div>
 <script src="js/html5-qrcode.min.js"></script>
 <script src="library/sweetalert2/dist/sweetalert2.all.min.js"></script>
 <?php include 'footer_script.php' ?>
@@ -52,24 +56,7 @@ Swal.fire({
             })
         }else{
             let datajson=JSON.parse(xhr.responseText);
-            var sound = new Howl({
-            src: ['sound/success.mp3'],
-            volume: 1.0,
-            });
-            sound.play()
-            let isimodal = '<b>'+datajson.nama+'</b><br>Himasurya '+datajson.angkatan;
-            if (datajson.wisudawan=='ya'){
-                isimodal+='<br>Wisudawan';
-            }
-            Swal.fire({
-                icon: 'success',
-                title: 'Selamat Datang',
-                html: isimodal,
-                }).then((result) => {
-                if (result.isConfirmed) {
-                    html5QrcodeScanner.render(onScanSuccess);
-                }
-            })
+            modalsukses(datajson)
         }
         
     }};
@@ -95,6 +82,105 @@ function initialize(){
     html5QrcodeScanner.render(onScanSuccess);
 }
 initialize()
+
+document.getElementById("btnmanual").addEventListener("click",function(){
+    let no_wa;
+    html5QrcodeScanner.clear();
+    Swal.fire({
+        title: 'Masukkan Nomor Whatsapp',
+        text: 'Awali dengan 62. Contoh: 6281234567891',
+        input: 'number',
+        inputAttributes: {
+            autocapitalize: 'off'
+        },
+        showCancelButton: true,
+        confirmButtonText: 'Cek Data',
+        showLoaderOnConfirm: true,
+        backdrop: true,
+        preConfirm: (login) => {
+            no_wa = login
+            let no_wa1 = no_wa.toString().substring(2);
+            return fetch(`cekdata?data=${no_wa1}&mode=check_in`)
+            .then(response => {
+                if (!response.ok) {
+                throw new Error(response.statusText)
+                }
+                return response.json()
+            })
+            .catch(error => {
+                Swal.showValidationMessage(
+                `${error}`
+                )
+            })
+        },
+        allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let btnconfirm = true
+            let isimodal = "<h4>"+result.value.nama+"</h3><b>Himasurya "+result.value.angkatan+"</b>"
+            if (result.value.jam_masuk!=''){
+                btnconfirm = false
+                isimodal+= "<br>Sudah masuk pada "+result.value.jam_masuk
+            }else{
+                isimodal+= "<br>Belum Check-In"
+            }
+            Swal.fire({
+            title: 'Data Ditemukan',
+            html: isimodal,
+            showCancelButton: true,
+            showConfirmButton: btnconfirm,
+            confirmButtonText: 'Check-In',
+            cancelButtonText: 'Batal',
+            reverseButtons: true,
+            allowOutsideClick: false,
+            showLoaderOnConfirm: true,
+            preConfirm: (login) => {
+                return fetch(`checkin?data=${no_wa}&mode=manual`)
+                .then(response => {
+                    if (!response.ok) {
+                    throw new Error(response.statusText)
+                    }
+                    return response.json()
+                })
+                .catch(error => {
+                    Swal.showValidationMessage(
+                    `Tidak Ditemukan`
+                    )
+                })
+            },
+            }).then((result) => {
+            if (result.isConfirmed) {
+                modalsukses(result.value)
+            }else{initialize()}
+            })
+        }else{initialize()}
+    })
+})
+function modalsukses(datajson){
+    var sound = new Howl({
+    src: ['sound/success.mp3'],
+    volume: 1.0,
+    });
+    sound.play()
+    let isimodal = '<b>'+datajson.nama+'</b><br>Himasurya '+datajson.angkatan;
+    if (datajson.wisudawan=='ya'){
+        isimodal+='<br>Wisudawan<br>';
+    }
+    isimodal+=datajson.jam_masuk;
+    judulmodal = "Selamat Datang"
+    if (datajson.status!='success'){
+        judulmodal = "Sudah Masuk"
+    }
+    Swal.fire({
+        icon: 'success',
+        title: judulmodal,
+        html: isimodal,
+        }).then((result) => {
+        if (result.isConfirmed) {
+            html5QrcodeScanner.render(onScanSuccess);
+        }
+    })
+}
 </script>
 </body>
 </html>

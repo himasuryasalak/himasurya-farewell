@@ -12,8 +12,14 @@ if ($row === 1){
     $obj->nama = $data['nama'];
     $obj->angkatan = $data['angkatan'];
     $obj->wisudawan = $data['wisudawan'];
-    $obj->data=qrcode($no_wa);
+    $obj->jam_masuk = $data['jam_masuk'];
+    if ($_GET['mode']!='check_in'){
+        $obj->data=qrcode($no_wa);
+    }
 }else{
     $obj->status = "not_found";
+    if ($_GET['mode']=='check_in'){
+        http_response_code(404);
+    }
 }
 echo json_encode($obj);

@@ -45,28 +45,29 @@ try {
 <table id="tabel1" class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th width="10px">No.</th>
+            <th width="5px"></th>
             <th>Nama</th>
-            <th width="15px">Tahun</th>
-            <th width="60px" style="text-align: center;">Status</th>
-            <th width="12px"></th>
+            <th width="50px">Masuk</th>
         </tr>
     </thead>
     <tbody>
         <?php 
         
-        $count1=0;
+        $count1=1;
         foreach($wisudawan as $data1){
-            $count1++;
-            if($data1['status']=='terdaftar')$color_status="orange";
-            else $color_status="green";
+            if($data1['status']=='terdaftar'){
+                $color_status="orange";
+                $status='<i class="fas fa-times"></i>';
+            }
+            else {
+                $color_status="black";
+                $status=$data1['jam_masuk'];
+            }
         ?>
         <tr>
         <td><?php echo $count1++;?></td>
         <td><?php echo $data1['nama']?></td>
-        <td style="text-align: center;"><?php echo $data1['angkatan']?></td>
-        <td style="text-align: center;color: <?php echo $color_status ?>;"><b><?php echo strtoupper($data1['status'])?></b></td>
-        <td style="text-align: center;"><a href='http://wa.me/<?php echo $data1['no_wa']?>' target="_BLANK" class="chat_wa"><button type="button" class="btn btn-sm btn-primary">Chat</button></a></td>
+        <td style="text-align: center;color: <?php echo $color_status ?>;"><?php echo $status?></td>
         </tr>
         <?php } ?>
     </tbody>
@@ -93,28 +94,31 @@ try {
 <table id="tabel2" class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th width="10px">No.</th>
+            <th width="5px"></th>
             <th>Nama</th>
-            <th width="15px">Tahun</th>
-            <th width="60px" style="text-align: center;">Status</th>
-            <th width="12px"></th>
+            <th width="15px">Thn</th>
+            <th width="40px">Masuk</th>
         </tr>
     </thead>
     <tbody>
         <?php 
         
-        $count1=0;
+        $count1=1;
         foreach($tamulain as $data1){
-            $count1++;
-            if($data1['status']=='terdaftar')$color_status="orange";
-            else $color_status="green";
+            if($data1['status']=='terdaftar'){
+                $color_status="orange";
+                $status='<i class="fas fa-times"></i>';
+            }
+            else {
+                $color_status="black";
+                $status=$data1['jam_masuk'];
+            }
         ?>
         <tr>
         <td><?php echo $count1++;?></td>
         <td><?php echo $data1['nama']?></td>
         <td style="text-align: center;"><?php echo $data1['angkatan']?></td>
-        <td style="text-align: center;color: <?php echo $color_status ?>;"><b><?php echo strtoupper($data1['status'])?></b></td>
-        <td style="text-align: center;"><a href='http://wa.me/<?php echo $data1['no_wa']?>' target="_BLANK" class="chat_wa"><button type="button" class="btn btn-sm btn-primary">Chat</button></a></td>
+        <td style="text-align: center;color: <?php echo $color_status ?>;"><?php echo $status?></td>
         </tr>
         <?php } ?>
     </tbody>
