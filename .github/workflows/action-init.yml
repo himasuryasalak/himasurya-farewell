@@ -7,3 +7,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v6
       - run: composer require firebase/php-jwt
+      - run: composer require paragonie/sodium_compat
