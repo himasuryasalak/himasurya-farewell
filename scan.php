@@ -84,7 +84,7 @@ const formatsToSupport = [
 ];
 var html5QrcodeScanner = new Html5QrcodeScanner(
 "reader", { 
-    fps: 10, 
+    fps: 30, 
     qrbox: 250,
     formatsToSupport: formatsToSupport
 });
