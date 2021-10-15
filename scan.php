@@ -74,9 +74,20 @@ Swal.fire({
   html: ErrMsg,
 })
 }
-
+const formatsToSupport = [
+  Html5QrcodeSupportedFormats.QR_CODE,
+  Html5QrcodeSupportedFormats.UPC_A,
+  Html5QrcodeSupportedFormats.UPC_E,
+  Html5QrcodeSupportedFormats.UPC_EAN_EXTENSION,
+  Html5QrcodeSupportedFormats.CODE_128,
+  Html5QrcodeSupportedFormats.EAN_13,
+];
 var html5QrcodeScanner = new Html5QrcodeScanner(
-"reader", { fps: 10, qrbox: 250 });
+"reader", { 
+    fps: 10, 
+    qrbox: 250,
+    formatsToSupport: formatsToSupport
+});
 
 function initialize(){
     html5QrcodeScanner.render(onScanSuccess);
