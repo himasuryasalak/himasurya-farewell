@@ -10,6 +10,7 @@
     ],
     "require": {
         "firebase/php-jwt": "^5.4",
-        "paragonie/sodium_compat": "^1.17"
+        "paragonie/sodium_compat": "^1.17",
+        "picqer/php-barcode-generator": "^2.2"
     }
 }
