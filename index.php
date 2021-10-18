@@ -7,7 +7,7 @@ function secondsToTime($seconds) {
 }
 $timezone = new DateTimeZone('Asia/Jakarta');
 $date = new DateTime('now',$timezone);
-$date2 = new DateTime('2021-10-22 19:00:00');
+$date2 = new DateTime('2021-10-22 17:00:00');
 $diff = $date2->getTimestamp() - $date->getTimestamp();
 $hasil = explode(",",gmdate("j,H,i,s"),$diff);
 
