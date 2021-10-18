@@ -1,8 +1,12 @@
 html{
-    background-color:rgb(255, 255, 255);
+  background: rgb(22,11,209);
+  background: linear-gradient(31deg, rgba(22,11,209,1) 0%, rgba(74,147,218,1) 35%, rgba(0,212,255,1) 100%);
+  
     }
     body{
-    background-color:rgb(255, 255, 255);
+      color: rgb(255, 255, 255);
+      background: none;
+      min-height: 100vh;
     }
     .kontener {
     color:white;
@@ -10,25 +14,40 @@ html{
         display: table;
         margin: auto;
     }
-    .container, .sm{
-      max-width: 500px;
+    #form-register{
+      margin: 10px;
+      padding: 30px 20px;
+      background-color: white;
+      border-radius: 20px;
+      align-self: center;
+      color: #000;
+      max-width: 450px;
+    }
+    #cover{
+      text-align: -webkit-center;
+      padding: 10px;
+    }
+    .main{
+      min-height: 80vh;
+    }
+    .col-md-6{
+      margin: auto;
     }
     .body {
     color:white;
     background-color:black;
-        display: table-cell;
-        vertical-align: middle;
-        width: 500px;
-        padding: 20px;
-        font-family: 'Baloo 2', cursive;
-        }
-    
-        th, td {
-        padding: 3px;
-        padding-left: 10px;
-        text-align: left; 
-        vertical-align: middle;	
-        }
+    display: table-cell;
+    vertical-align: middle;
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+    }
+
+    th, td {
+    padding: 3px;
+    padding-left: 10px;
+    text-align: left; 
+    vertical-align: middle;	
+    }
     .center {
       display: block;
       margin-left: auto;
@@ -45,12 +64,12 @@ html{
     .form-check-input:disabled{pointer-events:none;-webkit-filter:none;filter:none;opacity:.5}
     .form-check-input:disabled~.form-check-label,.form-check-input[disabled]~.form-check-label{opacity:.5}
     
-    .form-control:focus{color:#495057;background-color:#fff;border-color:#a38a52;outline:0;box-shadow:0 0 0 .1rem #b59b62}
+    .form-control:focus{color:#495057;background-color:#fff;border-color:#71adec;outline:0;box-shadow:0 0 0 .1rem #abcff5}
     
-    .btn-primary{color:#fff;background-color:#dbad42;border-color:#dbad42}
-    .btn-primary:focus{color:#fff;background-color:#a38a52;border-color:#a38a52;box-shadow:0 0 0 .2rem #e8c984}
-    .btn-primary:hover{color:#fff;background-color:#c2a259;border-color:#c2a259}
-    .btn-primary:active{color:#fff;background-color:#a38a52;border-color:#dbad42}
+    .btn-primary{color:#fff;background-color:#0487e2;border-color:#0487e2}
+    .btn-primary:focus{color:#fff;background-color:#0463ca;border-color:#eff5fc;box-shadow:0 0 0 .2rem #3f91e7}
+    .btn-primary:hover{color:#fff;background-color:#227d9e;border-color:#378ecc}
+    .btn-primary:active{color:#fff;background-color:#0463ca;border-color:#09b1ec}
     .btn-primary:focus:active{
       background-image: none;
       outline: 0;
@@ -62,14 +81,16 @@ html{
       background-color: #cccccc;
       color: #666666;
     }
-    .dropdown-item:focus{background-color: #c2a259}
-    .dropdown-item:active{background-color: #dbad42}
-    .dropdown-item.active {background-color: #f5bc38}
+    .dropdown-item:focus{background-color: #0463ca}
+    .dropdown-item:active{background-color: #2273ca}
+    .dropdown-item.active {background-color: #6da8e7}
     .coret{text-decoration: line-through;}
     .tabel-tipis td{
         padding: .1rem;
     }
-
+    .info{
+      color: #ffffff;
+    }
     .table th,.table td{
       padding: .4rem;
   }
@@ -85,11 +106,35 @@ html{
       text-align: center;
   }
 
+  #detail-acara{
+    text-align: left;
+    margin: 50px 20px;
+    max-width: 400px;
+  }
+  #detail-acara .col-auto{
+    padding: 0 5px;
+    max-width: 85%;
 
+  }
+  #detail-acara .btn-outline-primary{
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+  #detail-acara .btn-outline-primary:hover{
+    border-color: #007bff;
+  }
+  #detail-acara .btn-primary{
+    color: #0487e2;
+    font-weight: bold;
+    background-color: #ffffff;
+    border-color: #0487e2;
+  }
   #reader{
     width: 100%;
     max-width: 500px;
     margin: auto;
+    background-color: white;
+    color: #000;
 }
 #reader__dashboard_section_csr button{
     width: 80%;
@@ -112,4 +157,38 @@ html{
   border-radius: 5px;
   margin-top: 10px;
   padding: 0.5rem 0px;
+}
+
+.countdown{
+  text-align: center;
+}
+.countdown span {
+  display: block;
+  font-size: 2.5rem;
+  line-height: normal;
+  background-color: rgb(49 118 211);
+  border-radius: 5px;
+  border:rgb(25, 116, 235) 2px;
+  color: rgb(255, 255, 255);
+}
+.countdown .col-sm-3{
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 400;
+  list-style-type: none;
+  text-transform: uppercase;
+}
+#footer-button{
+  margin: 10px 0;
+}
+#footer-button >.btn{
+  margin: .25rem;
+}
+@media only screen and (max-width: 768px) {
+  .col-md-6{
+    margin: 40px 0 0 0;
+  }
+  #form-register{
+    margin: 50px 10px 200px 10px;
+  }
 }

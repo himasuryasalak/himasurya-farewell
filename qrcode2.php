@@ -15,20 +15,13 @@ function qrcode($isiqr){
     QRcode::png($npm, $path1, QR_ECLEVEL_H, 10,1);
      // ambil file qrcode
      
-    tempelbarcode($template,$path1,240,150,610);
-
-
-    $redColor = [0, 0, 0];
-    $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
-    file_put_contents($path, $generator->getBarcode($npm, $generator::TYPE_CODE_128, 3, 120, $redColor));
-
-    tempelbarcode($path1,$path,220,160,850);
+    tempelbarcode($template,$path1,240,150,650);
 
     
-    $type = pathinfo($path, PATHINFO_EXTENSION);
-    $data = file_get_contents($path);
+    $type = pathinfo($path1, PATHINFO_EXTENSION);
+    $data = file_get_contents($path1);
     $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-    unlink($path);
+    unlink($path1);
 
     return $base64;
 

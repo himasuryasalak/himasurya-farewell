@@ -1,49 +1,116 @@
 <?php
 include 'header.php';
+function secondsToTime($seconds) {
+    $dtF = new \DateTime('@0');
+    $dtT = new \DateTime("@$seconds");
+    return $dtF->diff($dtT)->format('%a,%h,%i,%s');
+}
+$timezone = new DateTimeZone('Asia/Jakarta');
+$date = new DateTime('now',$timezone);
+$date2 = new DateTime('2021-10-23 19:00:00');
+
+$diff = $date2->getTimestamp() - $date->getTimestamp();
+$hasil = explode(",",secondsToTime($diff));
+$hari = $hasil[0];
+$jam = $hasil[1];
+$menit = $hasil[2];
+$detik = $hasil[2];
 ?>
-<div class="container sm">
-<h1 style="text-align:center;font-family:Lobster">Himasurya Farewell 2020</h1>
-  <h3 style="text-align:center">RSVP</h3>
+
+<div class="container sm" style="text-align: -webkit-center;;">
+<div class="row main">
+    <div class="col-md-6" id="cover">
+        <div id="header">
+            <h1 style="text-align:center;font-family: 'Poppins', sans-serif;">Farewell 2021</h1>
+            <h3 style="text-align:center">Catre El infinito</h3>
+        </div>
+        <div id="detail-acara">
+            <div class="row">
+                <div class="col-auto"><i class="fas fa-calendar-alt"></i></div>
+                <div class="col-auto">Sabtu, 30 Oktober 2021</div>
+            </div>
+            <div class="row">
+                <div class="col-auto"><i class="fas fa-clock"></i></div>
+                <div class="col-auto">16:00 WIB sampe pengumuman penempatan</div>
+            </div>
+            <a href="https://goo.gl/maps/NDyj6w8nCwmMakku5" target="_BLANK" style="text-decoration: none;color:white;">
+            <div class="row">
+                <div class="col-auto"><i class="fas fa-map-marked-alt"></i></div>
+                <div class="col-auto">Bober Cafe <br>Jl. Raya Jemursari No.70, Jemur Wonosari, Kec. Wonocolo, Kota SBY, Jawa Timur 60237</div>
+            </div>
+            </a>
+            <div class="tombol" style="text-align: center;margin:30px 0">
+            <a href="#registrasi"><button type="button" class="btn btn-lg btn-primary">Registrasi</button></a>
+        </div>
+    </div>
+    
+    </div>
+    <div class="col-md-6">
+    <div id='registrasi'>
+        <h5>Batas Waktu Registrasi</h5>
+        <div class="row countdown row-cols-4" style="max-width: 400px;">
+            <div class="col-sm-3">
+                <span id='hari'>08</span><b>Hari</b>       
+            </div>
+            <div class="col-sm-3">
+                <span id='jam'>08</span><b>Jam</b>      
+            </div>
+            <div class="col-sm-3">
+                <span id='menit'>08</span><b>Menit</b>       
+            </div>
+            <div class="col-sm-3">
+                <span id='detik'>08</span><b>Detik</b>     
+            </div>
+        </div>
+    </div>
+        <div id="form-register">
+        <h4><?php if ($diff>0) echo "REGISTRASI"; else echo "CEK E-TICKET" ?></h4><br>
+            <form id='form1' class='needs-validation' novalidate>
+                <h6>Nomor <i>Whatsapp</i></h6>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">+62</span>
+                    </div>
+                    <input type="number" max="99999999999999" min="99999" id='wa' class="form-control" placeholder="81234567891" aria-label="Username" aria-describedby="basic-addon1" required aria-required="true">
+                </div>
+                <div style="text-align: center;">
+                    <button type="submit" id="btnsubmit1" class="btn btn-primary"><b>Next</b></button>
+                </div>
+            </form>
+            <form id='form2' style="display: none;">
+                <span><h6>Nama Lengkap</h6></span>
+                <input id="nama" type="text" class="form-control" placeholder="Contoh : Kirni Ilyis" required aria-required="true"><br>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6>Angkatan</h6>
+                        <input id="angkatan" type="number" max="2021" class="form-control" placeholder="2017" required aria-required="true">
+                        <br>
+                    </div>
+                    <div id="wisudawan18" class="col-sm-9" style="display: none;">
+                    <h6>Apakah kamu wisudawan tahun ini?</h6>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" name='wisudawan' type="radio" id="wisudawan_ya" value="ya">
+                        <label class="form-check-label" for="wisudawan_ya">Ya</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" name='wisudawan' type="radio" id="wisudawan_tidak" value="tidak">
+                        <label class="form-check-label" for="wisudawan_tidak">Tidak</label>
+                    </div>
+                    </div>
+                </div>
+                <div id="footer-button" style="text-align: center;">
+                    <button type="button" id="btncancel" class="btn btn-secondary">Batalkan Kehadiran</button>
+                    <button type="button" id="btndownload" class="btn btn-primary"><b>Download E-Ticket</b</button>
+                    <button type="submit" id="btnsubmit2" class="btn btn-primary"><b>Submit</b></button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+  </div>
+
   <br>
-  <form id='form1' class='needs-validation' novalidate>
-    <h6>Nomor <i>Whatsapp</i></h6>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">+62</span>
-        </div>
-        <input type="number" max="99999999999999" min="99999" id='wa' class="form-control" placeholder="81234567891" aria-label="Username" aria-describedby="basic-addon1" required aria-required="true">
-    </div>
-    <div style="text-align: center;">
-        <button type="submit" id="btnsubmit1" class="btn btn-primary"><b>Next</b></button>
-    </div>
-  </form>
-  <form id='form2' style="display: none;">
-    <span><h6>Nama Lengkap</h6></span>
-    <input id="nama" type="text" class="form-control" placeholder="Contoh : Kirni Ilyis" required aria-required="true"><br>
-    <div class="row">
-        <div class="col-sm-3">
-            <h6>Angkatan</h6>
-            <input id="angkatan" type="number" max="2021" class="form-control" placeholder="2017" required aria-required="true">
-            <br>
-        </div>
-        <div id="wisudawan18" class="col-sm-9" style="display: none;">
-        <h6>Apakah kamu wisudawan tahun ini?</h6>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" name='wisudawan' type="radio" id="wisudawan_ya" value="ya">
-            <label class="form-check-label" for="wisudawan_ya">Ya</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" name='wisudawan' type="radio" id="wisudawan_tidak" value="tidak">
-            <label class="form-check-label" for="wisudawan_tidak">Tidak</label>
-          </div>
-        </div>
-    </div>
-    <div style="text-align: center;">
-        <button type="button" id="btncancel" class="btn btn-secondary">Batalkan Kehadiran</button>
-        <button type="button" id="btndownload" class="btn btn-primary"><b>Download E-Ticket</b</button>
-        <button type="submit" id="btnsubmit2" class="btn btn-primary"><b>Submit</b></button>
-    </div>
-  </form>
 
 </div>
 <?php include 'footer_script.php'?>
@@ -113,15 +180,31 @@ let data_base64
                                 }else{
                                     divopsi.style.display = "none";
                                 }
+                            <?php if ($diff > 0){ ?>
                             }else{
                                 mode = "new";
                                 document.getElementById('btncancel').style.display = 'none';
                                 document.getElementById('btndownload').style.display = 'none';
+                                
                             }
                             document.getElementById("btnsubmit1").style.display='none'
                             document.getElementById("form2").style.display='block'
                             document.getElementById("wa").disabled = true
                             swal.close();
+                            <?php } else{ ?>
+                                document.getElementById("btnsubmit1").style.display='none'
+                                document.getElementById("form2").style.display='block'
+                                document.getElementById("wa").disabled = true
+                                swal.close();
+                            }else{
+                                swal.fire({
+                                    icon: 'error',
+                                    title: 'Tidak ditemukan',
+                                    html: 'Nomor whatsapp tidak terdaftar',
+                                    confirmButtonColor: '#2273ca',
+                                })
+                            }
+                            <?php } ?>
                         }
                     }
                     xhr.send();
@@ -168,7 +251,7 @@ let data_base64
                 `,
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
+                confirmButtonColor: '#2273ca',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Oke, lanjutkan',
                 cancelButtonText: 'Salah, sek',
@@ -185,7 +268,6 @@ let data_base64
                         var url = "submit_data.php";
                         var xhr = new XMLHttpRequest();
                         xhr.open("POST", url);
-
                         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                         var data = "nama="+nama+"&angkatan="+angkatan+"&wisudawan="+wisudawan+"&no_wa="+wa_encoded;
                         xhr.onreadystatechange = function () {
@@ -219,10 +301,62 @@ let data_base64
   document.getElementById("btndownload").addEventListener("click",function(){
     downloadEticket()
   })
+  document.getElementById("btncancel").addEventListener("click",function(){
+    batalhadir()
+  })
 })();
 function submitData(ini){
       console.log(ini)
   }
+function batalhadir(){
+    Swal.fire({
+        title: "Yahh, yakin nih??",
+        html: "Apakah kamu yakin gajadi dateng Farewell 2021??",
+        confirmButtonText: "Yakin",
+        cancelmButtonText: "Batal",
+        confirmButtonColor: '#d35757',
+        showCancelButton:true,
+        icon: "question",
+    }).then((result)=>{
+        if(result.isConfirmed){
+            Swal.fire({
+            title: 'Memprose Pembatalan...',
+            html: 'Sek rek, dilut...',
+            allowOutsideClick:false,
+            didOpen: () => {
+                Swal.showLoading();
+
+                let no_wa = document.getElementById("wa").value;
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET",'batalhadir?data='+no_wa);
+                xhr.onreadystatechange = function(){
+                    if (xhr.readyState === 4){
+                        if(xhr.responseText==='done'){
+                            swal.fire({
+                                icon: 'success',
+                                title:"Oke, sudah...",
+                                html:`Pembatalan kehadiran berhasil diproses
+                                <br><br>
+                                <button type="button" onclick='javascript:window.location.reload()' class="btn btn-primary"><b>Oke</b></button>`,
+                                showConfirmButton: false,
+                                allowOutsideClick:false,
+                            })
+                        }else{
+                            swal.fire({
+                                icon: 'error',
+                                title:"Oops...Terjadi kesalahan",
+                                html:xhr.responseText,
+                                allowOutsideClick:false,
+                            })
+                        }
+                    }
+                }
+                xhr.send();
+            }
+        })
+        }
+    })
+}
 function downloadEticket(){
     Swal.fire({
         title: 'Mengunduh...',
@@ -239,6 +373,7 @@ function downloadEticket(){
                 <button type="button" onclick='javascript:window.location.reload()' class="btn btn-primary"><b>Oke</b></button>`,
                 showConfirmButton: false,
                 allowOutsideClick:false,
+                confirmButtonColor: '#2273ca',
             })
         }
     })
@@ -252,6 +387,36 @@ function downloadfile(base64) {
     downloadLink.download = fileName;
     downloadLink.click();
 }
+</script>
+<script>
+var distance = <?php echo $diff ?>;
+
+var x = setInterval(function() {
+    distance--
+  // Time calculations for days, hours, minutes and seconds
+  document.getElementById("hari").innerHTML = ("0"+Math.floor(distance / (60 * 60 * 24))).slice(-2);
+  document.getElementById("jam").innerHTML = ("0"+Math.floor((distance % (60 * 60 * 24)) / (60 * 60))).slice(-2);
+  document.getElementById("menit").innerHTML = ("0"+Math.floor((distance % (60 * 60)) / (60))).slice(-2);
+  document.getElementById("detik").innerHTML = ("0"+Math.floor(distance % (60))).slice(-2);
+
+  // Display the result in the element with id="demo"
+  //document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+  }
+}, 1000);
+if (distance < 0) {
+    clearInterval(x);
+    distance=0;
+}
+    document.getElementById("hari").innerHTML = ("0"+Math.floor(distance / (60 * 60 * 24))).slice(-2);
+  document.getElementById("jam").innerHTML = ("0"+Math.floor((distance % (60 * 60 * 24)) / (60 * 60))).slice(-2);
+  document.getElementById("menit").innerHTML = ("0"+Math.floor((distance % (60 * 60)) / (60))).slice(-2);
+  document.getElementById("detik").innerHTML = ("0"+Math.floor(distance % (60))).slice(-2);
+// Update the count down every 1 second
+
 </script>
   </body>
 </html>

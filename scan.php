@@ -12,7 +12,7 @@ try {
 <div class='container' style="text-align: center;">
 <div id="reader"></div>
 <br>
-<button type="button" class='btn btn-primary' id="btnmanual">Manual Check-In</button>
+<button type="button" class='btn btn-secondary' id="btnmanual">Manual Check-In</button>
 </div>
 <script src="js/html5-qrcode.min.js"></script>
 <script src="library/sweetalert2/dist/sweetalert2.all.min.js"></script>
@@ -175,9 +175,9 @@ function modalsukses(datajson){
     sound.play()
     let isimodal = '<b>'+datajson.nama+'</b><br>Himasurya '+datajson.angkatan;
     if (datajson.wisudawan=='ya'){
-        isimodal+='<br>Wisudawan<br>';
+        isimodal+='<br>Wisudawan';
     }
-    isimodal+=datajson.jam_masuk;
+    isimodal+='<br>'+datajson.jam_masuk;
     judulmodal = "Selamat Datang"
     if (datajson.status!='success'){
         judulmodal = "Sudah Masuk"

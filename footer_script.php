@@ -13,6 +13,7 @@
         },
         showCancelButton: true,
         confirmButtonText: 'Login',
+        confirmButtonColor: '#2273ca',
         showLoaderOnConfirm: true,
         preConfirm: (login) => {
             return fetch(`login?data=${login}`)
