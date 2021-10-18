@@ -27,16 +27,16 @@ $detik = $hasil[2];
         <div id="detail-acara">
             <div class="row">
                 <div class="col-auto"><i class="fas fa-calendar-alt"></i></div>
-                <div class="col-auto">Sabtu, 30 Oktober 2021</div>
+                <div class="col-auto"><b>Sabtu, 30 Oktober 2021</b></div>
             </div>
             <div class="row">
                 <div class="col-auto"><i class="fas fa-clock"></i></div>
-                <div class="col-auto">16:00 WIB sampe pengumuman penempatan</div>
+                <div class="col-auto"><b>16:00 WIB</b> sampe pengumuman penempatan</div>
             </div>
             <a href="https://goo.gl/maps/NDyj6w8nCwmMakku5" target="_BLANK" style="text-decoration: none;color:white;">
             <div class="row">
                 <div class="col-auto"><i class="fas fa-map-marked-alt"></i></div>
-                <div class="col-auto">Bober Cafe <br>Jl. Raya Jemursari No.70, Jemur Wonosari, Kec. Wonocolo, Kota SBY, Jawa Timur 60237</div>
+                <div class="col-auto"><b>Bober Cafe</b><br>Jl. Raya Jemursari No.70, Jemur Wonosari, Kec. Wonocolo, Kota SBY, Jawa Timur 60237</div>
             </div>
             </a>
             <div class="tombol" style="text-align: center;margin:30px 0">
@@ -279,9 +279,10 @@ let data_base64
                                 swal.fire({
                                     icon: 'success',
                                     title:"Horeee..",
-                                    html:`Kamu berhasil terdaftar, E-Ticket otomatis akan terunduh sesaat lagi. Jika E-Ticket belum terunduh/terdownload, klik <a href='#' onclick='javascript:downloadEticket()'>Download E-Ticket</a>
+                                    html:`Kamu berhasil terdaftar, <b>E-Ticket</b> otomatis akan terunduh sesaat lagi. <b>Tunjukkan E-Ticket tersebut saat masuk ke venue</b>, jadi jangan dihapus ya mas mbak. 
                                     <br><br>
                                     <button type="button" onclick='javascript:window.location.reload()' class="btn btn-primary"><b>Oke</b></button>`,
+                                    footer: "<a href='' style='text-align: center;' onclick='javascript:downloadEticket()'>Klik disini jika E-Ticket belum terunduh / terdownload</a>",
                                     showConfirmButton: false,
                                     allowOutsideClick:false,
                                 })
