@@ -8,7 +8,7 @@ require_once __DIR__ . '/src/session.php';
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Farewell 2020</title>
+    <title>Farewell Himasurya</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta version="v.1.0.1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -24,7 +24,7 @@ require_once __DIR__ . '/src/session.php';
 </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #09b1ec;">
-  <a class="navbar-brand" href="#">Farewell Himsur21</a>
+  <a class="navbar-brand" href="#">Farewell Himsurya</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

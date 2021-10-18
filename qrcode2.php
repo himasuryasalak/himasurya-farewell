@@ -7,7 +7,7 @@ function qrcode($isiqr){
     $path = $tempdir.$isiqr.'_0.png';
     $path1 = $tempdir.$isiqr.'.png';
     $template = 'files/template.png';
-    $logopath="https://cdn.pixabay.com/photo/2018/05/08/18/25/facebook-3383596_960_720.png";
+    $logopath="files/logo_QR.png";
 
     if (!file_exists($tempdir)) //Buat folder bername temp
     mkdir($tempdir);
@@ -15,7 +15,8 @@ function qrcode($isiqr){
     QRcode::png($npm, $path1, QR_ECLEVEL_H, 10,1);
      // ambil file qrcode
      
-    tempelbarcode($template,$path1,240,150,650);
+    //tempelbarcode($path1,$logopath,$path1,100,50,50);
+    tempelbarcode($template,$path1,$path1,450,320,1270);
 
     
     $type = pathinfo($path1, PATHINFO_EXTENSION);
@@ -26,7 +27,7 @@ function qrcode($isiqr){
     return $base64;
 
 }
-function tempelbarcode($path0,$pathbarcode,$barcode_width,$posisi_x,$posisi_y){
+function tempelbarcode($path0,$pathbarcode,$pathexport,$barcode_width,$posisi_x,$posisi_y){
     $QR = imagecreatefrompng($path0);
 
     // memulai menggambar logo dalam file qrcode
@@ -51,5 +52,5 @@ function tempelbarcode($path0,$pathbarcode,$barcode_width,$posisi_x,$posisi_y){
     imagecopyresampled($QR, $logo,$posisi_x,$posisi_y, 0, 0, $logo_qr_width, $logo_qr_height, $logo_width, $logo_height);
 
     // Simpan kode QR lagi, dengan logo di atasnya
-    imagepng($QR,$pathbarcode);
+    imagepng($QR,$pathexport);
 }
