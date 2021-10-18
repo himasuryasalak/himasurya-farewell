@@ -7,7 +7,7 @@ function secondsToTime($seconds) {
 }
 $timezone = new DateTimeZone('Asia/Jakarta');
 $date = new DateTime('now',$timezone);
-$date2 = new DateTime('2021-10-23 19:00:00');
+$date2 = new DateTime('2021-10-22 19:00:00');
 $diff = $date2->getTimestamp() - $date->getTimestamp();
 $hasil = explode(",",gmdate("j,H,i,s"),$diff);
 
@@ -31,7 +31,7 @@ $detik = $hasil[2];
             </div>
             <div class="row">
                 <div class="col-auto"><i class="fas fa-clock"></i></div>
-                <div class="col-auto"><b>16:00 WIB</b> sampe pengumuman penempatan</div>
+                <div class="col-auto"><b>16:00 WIB - Selesai</b></div>
             </div>
             <a href="https://goo.gl/maps/NDyj6w8nCwmMakku5" target="_BLANK" style="text-decoration: none;color:white;">
             <div class="row">
@@ -151,7 +151,7 @@ let data_base64
             event.preventDefault();
             Swal.fire({
                 title: 'Memproses',
-                html: 'Sedang mencari <span class="coret"><i>pacar<i></span> data',
+                html: 'Sedang mencari data',
                 allowOutsideClick:false,
                 didOpen: () => {
                     Swal.showLoading();

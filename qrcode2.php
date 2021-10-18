@@ -6,7 +6,7 @@ function qrcode($isiqr){
     $npm=strtr(base64_encode($isiqr), '+/=', '-_-');
     $path = $tempdir.$isiqr.'_0.png';
     $path1 = $tempdir.$isiqr.'.png';
-    $template = 'files/template_demo.png';
+    $template = 'files/template.png';
     $logopath="files/logo_QR.png";
 
     if (!file_exists($tempdir)) //Buat folder bername temp

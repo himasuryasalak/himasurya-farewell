@@ -40,7 +40,8 @@ try {
                 <th><?php echo count($sdh_hadir1) ?></th>
             </tr>
         </tbody>
-    </table>
+    </table><br>
+    <button type="button" class="btn btn-warning" id="btnrandom1">Random Picker</button>
 </div>
 <table id="tabel1" class="table table-striped table-bordered">
     <thead>
@@ -54,7 +55,9 @@ try {
         <?php 
         
         $count1=1;
+        $list_wisudawan=array();
         foreach($wisudawan as $data1){
+            array_push($list_wisudawan,$data1['nama']);
             if($data1['status']=='terdaftar'){
                 $color_status="orange";
                 $status='<i class="fas fa-times"></i>';
@@ -125,7 +128,7 @@ try {
 </table>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<?php include 'footer_script.php'?>
 <!-- DataTables  & Plugins -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
@@ -136,6 +139,31 @@ $(document).ready(function() {
     $('#tabel1').DataTable().buttons().container().appendTo( '#tabel1_wrapper .col-md-6:eq(0)');
     $('#tabel2').DataTable().buttons().container().appendTo( '#tabel1_wrapper .col-md-6:eq(0)');
 });
+document.getElementById("btnrandom1").addEventListener("click",function(){
+    let list = ['<?php echo implode("','",$list_wisudawan) ?>'];
+    const random = Math.floor(Math.random() * list.length);
+    let timerInterval
+    Swal.fire({
+        title: 'Memproses...',
+        html: 'Hasil akan muncul dalam <b>3</b> Detik',
+        timer: 3000,
+        allowOutsideClick:false,
+        didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+            timerInterval = setInterval(() => {
+                b.textContent = Math.ceil(Swal.getTimerLeft()/1000)
+            }, 1000)
+        },willClose: () => {
+            clearInterval(timerInterval)
+        }
+        }).then((result) => {
+        Swal.fire({
+            title:"Selamat Kepada",
+            html:"<h4>"+list[random]+"</h4>Telah Terpilih dalam random picker kali ini",
+        })
+    })
+})
 </script>
 </body>
 </html>
