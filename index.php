@@ -337,9 +337,10 @@ function batalhadir(){
                             swal.fire({
                                 icon: 'success',
                                 title:"Oke, sudah...",
-                                html:`Pembatalan kehadiran berhasil diproses
+                                html:`Kamu berhasil terdaftar, <b>E-Ticket</b> otomatis akan terunduh sesaat lagi. <b>Tunjukkan E-Ticket tersebut saat masuk ke venue</b>, jadi jangan dihapus ya mas mbak. 
                                 <br><br>
                                 <button type="button" onclick='javascript:window.location.reload()' class="btn btn-primary"><b>Oke</b></button>`,
+                                footer: "<a href='' style='text-align: center;' onclick='javascript:downloadEticket()'>Klik disini jika E-Ticket belum terunduh / terdownload</a>",
                                 showConfirmButton: false,
                                 allowOutsideClick:false,
                             })
