@@ -100,7 +100,8 @@ $detik = $hasil[2];
                 </div>
                 <div id="footer-button" style="text-align: center;">
                     <button type="button" id="btncancel" class="btn btn-secondary">Batalkan Kehadiran</button>
-                    <button type="button" id="btndownload" class="btn btn-primary"><b>Download E-Ticket</b</button>
+                    <button type="button" id="btnlihat" class="btn btn-success">Lihat E-Ticket</button>
+                    <button type="button" id="btndownload" class="btn btn-primary"><b>Download E-Ticket</b></button>
                     <button type="submit" id="btnsubmit2" class="btn btn-primary"><b>Submit</b></button>
                 </div>
             </form>
@@ -185,6 +186,7 @@ let data_base64
                                 mode = "new";
                                 document.getElementById('btncancel').style.display = 'none';
                                 document.getElementById('btndownload').style.display = 'none';
+                                document.getElementById('btnlihat').style.display = 'none';
                                 
                             }
                             document.getElementById("btnsubmit1").style.display='none'
@@ -281,7 +283,7 @@ let data_base64
                                     title:"Horeee..",
                                     html:`Kamu berhasil terdaftar, <b>E-Ticket</b> otomatis akan terunduh sesaat lagi. <b>Tunjukkan E-Ticket tersebut saat masuk ke venue</b>, jadi jangan dihapus ya mas mbak. 
                                     <br><br>
-                                    <button type="button" onclick='javascript:window.location.reload()' class="btn btn-primary"><b>Oke</b></button>`,
+                                    <button type="button" onclick='javascript:lihatEticket()' class="btn btn-success">Lihat E-Ticket</button>&nbsp;<button type="button" onclick='javascript:window.location.reload()' class="btn btn-primary"><b>Oke</b></button><br>`,
                                     footer: "<a href='' style='text-align: center;' onclick='javascript:downloadEticket()'>Klik disini jika E-Ticket belum terunduh / terdownload</a>",
                                     showConfirmButton: false,
                                     allowOutsideClick:false,
@@ -302,6 +304,9 @@ let data_base64
   
   document.getElementById("btndownload").addEventListener("click",function(){
     downloadEticket()
+  })
+  document.getElementById("btnlihat").addEventListener("click",function(){
+    lihatEticket()
   })
   document.getElementById("btncancel").addEventListener("click",function(){
     batalhadir()
@@ -380,6 +385,13 @@ function downloadEticket(){
         }
     })
   }
+function lihatEticket(){
+    var image = new Image();
+    image.src = data_base64;
+
+    var w = window.open("");
+    w.document.write(image.outerHTML);
+}
 function downloadfile(base64) {
     const linkSource = `${base64}`;
     const downloadLink = document.createElement("a");
