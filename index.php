@@ -31,12 +31,12 @@ $detik = $hasil[2];
             </div>
             <div class="row">
                 <div class="col-auto"><i class="fas fa-clock"></i></div>
-                <div class="col-auto"><b>16:00 WIB - Selesai</b></div>
+                <div class="col-auto"><b>Open Gate : 15.00-15.30 WIB</b></div>
             </div>
-            <a href="https://goo.gl/maps/NDyj6w8nCwmMakku5" target="_BLANK" style="text-decoration: none;color:white;">
+            <a href="https://g.page/babehstreet" target="_BLANK" style="text-decoration: none;color:white;">
             <div class="row">
                 <div class="col-auto"><i class="fas fa-map-marked-alt"></i></div>
-                <div class="col-auto"><b>Bober Cafe</b><br>Jl. Raya Jemursari No.70, Jemur Wonosari, Kec. Wonocolo, Kota SBY, Jawa Timur 60237</div>
+                <div class="col-auto"><b>Babeh St.</b><br>Jl. Slamet No.6, Ketabang, Kec. Genteng, Kota SBY, Jawa Timur 60272</div>
             </div>
             </a>
             <div class="tombol" style="text-align: center;margin:30px 0">
