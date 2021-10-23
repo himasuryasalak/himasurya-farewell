@@ -1,5 +1,6 @@
 <?php 
 $server=array();
+error_reporting(1);
 $server = ['localhost','farewell.gabut.ga'];
 if ( in_array($_SERVER['SERVER_NAME'],$server)){
 shell_exec( 'git pull origin master' ); ?>
