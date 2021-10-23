@@ -117,17 +117,16 @@ $detik = $hasil[2];
 <?php include 'footer_script.php'?>
 <script>
 let data_base64
-<?php if ($diff > 0){ ?>
-swal.fire({
+(function() {
+  'use strict';
+  let divopsi = document.getElementById("wisudawan18");
+  <?php if ($diff > 0){ ?>
+Swal.fire({
     icon:"info",
     title: "Registrasi Diperpanjang!!!",
     html: "Batas waktu registrasi diperpanjang sampai<br><b>Minggu, 24 Oktober 2021 Pukul 12:00 WIB</b><br><br>Yuk segera daftarkan dirimu. Kemeriahan Farewell Party Himasurya menantimu!!!"
 })
 <?php } ?>
-(function() {
-  'use strict';
-  let divopsi = document.getElementById("wisudawan18");
-  
   let mode = "new";
     function show_opsi(){
         divopsi.style.display = 'inline'
