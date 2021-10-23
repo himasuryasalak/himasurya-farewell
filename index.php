@@ -7,7 +7,7 @@ function secondsToTime($seconds) {
 }
 $timezone = new DateTimeZone('Asia/Jakarta');
 $date = new DateTime('now',$timezone);
-$date2 = new DateTime('2021-10-23 00:00:00',$timezone);
+$date2 = new DateTime('2021-10-24 12:00:00',$timezone);
 $diff = $date2->getTimestamp() - $date->getTimestamp();
 $hasil = explode(",",gmdate("j,H,i,s"),$diff);
 
@@ -117,6 +117,11 @@ $detik = $hasil[2];
 <?php include 'footer_script.php'?>
 <script>
 let data_base64
+swal.fire({
+    icon:"info",
+    title: "Registrasi Diperpanjang",
+    html: "Batas waktu registrasi diperpanjang sampai<br><b>Minggu, 24 Oktober 2021 Pukul 12:00 WIB</b><br><br>Yuk segera daftarkan dirimu. Kemeriahan Farewell Party Himasurya menantimu!!!"
+})
 (function() {
   'use strict';
   let divopsi = document.getElementById("wisudawan18");
@@ -140,6 +145,7 @@ let data_base64
         }
     })
   window.addEventListener('load', function() {
+      
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var form1 = document.getElementById('form1');
     var form2 = document.getElementById('form2');
