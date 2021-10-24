@@ -14,7 +14,7 @@ try {
 <br>
 <button type="button" class='btn btn-secondary' id="btnmanual">Manual Check-In</button>
 </div>
-<script src="js/html5-qrcode.min.js"></script>
+<script src="js/html5-qrcode.min.js?v=241021"></script>
 <script src="library/sweetalert2/dist/sweetalert2.all.min.js"></script>
 <?php include 'footer_script.php' ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
