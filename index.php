@@ -7,7 +7,7 @@ function secondsToTime($seconds) {
 }
 $timezone = new DateTimeZone('Asia/Jakarta');
 $date = new DateTime('now',$timezone);
-$date2 = new DateTime('2021-10-24 12:00:00',$timezone);
+$date2 = new DateTime('2021-10-26 19:00:00',$timezone);
 $diff = $date2->getTimestamp() - $date->getTimestamp();
 $hasil = explode(",",gmdate("j,H,i,s"),$diff);
 if ($diff > 0){
@@ -125,7 +125,7 @@ let data_base64
 Swal.fire({
     icon:"info",
     title: "Registrasi Diperpanjang!!!",
-    html: "Batas waktu registrasi diperpanjang sampai<br><b>Minggu, 24 Oktober 2021 Pukul 12:00 WIB</b><br><br>Yuk segera daftarkan dirimu. Kemeriahan Farewell Party Himasurya menantimu!!!"
+    html: "Batas waktu registrasi diperpanjang sampai<br><b>Selasa, 26 Oktober 2021 Pukul 19:00 WIB</b><br><br>Yuk segera daftarkan dirimu. Kemeriahan Farewell Party Himasurya menantimu!!!"
 })
 <?php } ?>
   let mode = "new";
