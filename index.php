@@ -10,11 +10,12 @@ $date = new DateTime('now',$timezone);
 $date2 = new DateTime('2021-10-24 12:00:00',$timezone);
 $diff = $date2->getTimestamp() - $date->getTimestamp();
 $hasil = explode(",",gmdate("j,H,i,s"),$diff);
-
-$hari = $hasil[0];
-$jam = $hasil[1];
-$menit = $hasil[2];
-$detik = $hasil[2];
+if ($diff > 0){
+    $hari = $hasil[0];
+    $jam = $hasil[1];
+    $menit = $hasil[2];
+    $detik = $hasil[2];
+}
 ?>
 
 <div class="container sm" style="text-align: -webkit-center;;">

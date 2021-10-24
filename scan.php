@@ -21,7 +21,6 @@ try {
 <script>
 function onScanSuccess(decodedText, decodedResult) {
 console.log(`Scan result: ${decodedText}`, decodedResult);
-html5QrcodeScanner.clear();
 Swal.fire({
   title: 'Memproses',
   html: 'Mohon tunggu',
@@ -50,9 +49,7 @@ Swal.fire({
                 title: 'Akses Ditolak',
                 html: 'Data tidak ditemukan',
                 }).then((result) => {
-                if (result.isConfirmed) {
-                    html5QrcodeScanner.render(onScanSuccess);
-                }
+                    html5QrcodeScanner.resume()
             })
         }else{
             let datajson=JSON.parse(xhr.responseText);
@@ -65,7 +62,7 @@ Swal.fire({
     
   }
 })
-
+html5QrcodeScanner.pause()
 }
 function onScanError(ErrMsg){
 Swal.fire({
@@ -187,9 +184,7 @@ function modalsukses(datajson){
         title: judulmodal,
         html: isimodal,
         }).then((result) => {
-        if (result.isConfirmed) {
-            html5QrcodeScanner.render(onScanSuccess);
-        }
+            html5QrcodeScanner.resume()
     })
 }
 </script>
