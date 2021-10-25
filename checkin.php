@@ -1,9 +1,9 @@
 <?php
 include 'koneksi.php';
 
-$no_wa = $_GET['data'];
-if(isset($_GET['mode'])&&$_GET['mode']!='manual') $no_wa = base64_decode(strtr($_GET['data'], '-_-', '+/='));
+$no_wa = base64_decode(strtr($_GET['data'], '-_-', '+/='));
 
+if(isset($_GET['mode'])&&$_GET['mode']=='manual') $no_wa = $_GET['data'];
 $query = mysqli_query($koneksi, "SELECT * from rekap WHERE no_wa='$no_wa'");
 $cek = mysqli_num_rows($query);
 if ($cek ===0){
