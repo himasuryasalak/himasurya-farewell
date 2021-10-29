@@ -23,3 +23,5 @@ RewriteRule ^(.*)$ $1.html [NC,L]
 
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php [NC,L]
+
+RedirectMatch 301 /awarding https://docs.google.com/forms/d/e/1FAIpQLSfyT8_kEXhFkMJtciA5DYzzMTHkD_W5L_IFVDCeinjaePXFNg/viewform
